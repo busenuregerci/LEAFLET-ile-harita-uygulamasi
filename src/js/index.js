@@ -35,9 +35,17 @@ var stil = {
 var cordList1 = [[38,32],[38,33],[39,27]];
 var çizgi1 = L.polyline(cordList1,stil).addTo(map);
 
+var stil2 = {
+    color: "#d35400",
+    weight:5,
+    dashArray:"10 20",
+    fill: true,
+    fillColor: "#1abc9c",
+    fillOpacity: 0.4
+}
 
 cordList1.push([39,34]);
-var polygon1 = L.polygon(cordList1).addTo(map);
+var polygon1 = L.polygon(cordList1,stil2).addTo(map);
 
 //var bbox = polygon1.getBounds(); //* haritaya ekleninen poligonun bounce değeri alınır ve haritaya fitBounce denildiğinde bizim çerçevelediğimiz çerçeve içerisine haritayı ortalamaya çalışır ve odaklar.
 //map.fitBounds(bbox2);
@@ -48,9 +56,14 @@ var rectangle = L.rectangle(board).addTo(map);
 //var bbox2 = rectangle.getBounds();
 //map.fitBounds(bbox2);
 
+var stil3 = {
+    color: "#c0392b",
+    fill: false,
+};
+stil3.radius = 20;
 //* circle oluşumu
-// var merkez = [41.00827163916992, 28.966947820848873];
-// var circle = L.circle(merkez,{radius: 50}).addTo(map);
+var merkez = [41.00827163916992, 28.966947820848873];
+var circle = L.circle(merkez,stil3).addTo(map);
 // var bbox2 = circle.getBounds();
 // map.fitBounds(circle);
 
