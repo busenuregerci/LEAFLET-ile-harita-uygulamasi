@@ -22,13 +22,41 @@ googleBaseMap.addTo(map);
 
 var nokta1 = L.marker([38,32]).addTo(map);
 
+var stil = {
+    stroke: true,
+    color: "#8e44ad",
+    weight:10,
+    opacity: 0.7,
+    lineCap: "butt",
+    lineJoin: "round",
+    dashArray:"10 20 10 5"
+}
+
 var cordList1 = [[38,32],[38,33],[39,27]];
-var çizgi1 = L.polyline(cordList1).addTo(map);
+var çizgi1 = L.polyline(cordList1,stil).addTo(map);
 
 
 cordList1.push([39,34]);
 var polygon1 = L.polygon(cordList1).addTo(map);
 
-var bbox = polygon1.getBounds(); //* haritaya ekleninen poligonun bounce değeri alınır ve haritaya fitBounce denildiğinde bizim çerçevelediğimiz çerçeve içerisine haritayı ortalamaya çalışır ve odaklar.
-map.fitBounds(bbox);
+//var bbox = polygon1.getBounds(); //* haritaya ekleninen poligonun bounce değeri alınır ve haritaya fitBounce denildiğinde bizim çerçevelediğimiz çerçeve içerisine haritayı ortalamaya çalışır ve odaklar.
+//map.fitBounds(bbox2);
+
+//* harita üstünde dikdörtgen oluşumu
+var board = [[1,1],[9,2]];
+var rectangle = L.rectangle(board).addTo(map);
+//var bbox2 = rectangle.getBounds();
+//map.fitBounds(bbox2);
+
+//* circle oluşumu
+// var merkez = [41.00827163916992, 28.966947820848873];
+// var circle = L.circle(merkez,{radius: 50}).addTo(map);
+// var bbox2 = circle.getBounds();
+// map.fitBounds(circle);
+
+//* circle marker oluşturulması
+var merkez2 = [41.00827163916992, 28.966947820848873];
+var nokta = L.circleMarker(merkez2, {radius: 5}).addTo(map); 
+var bbox2 = nokta.getBounds(); //! burada çıkan console hatası circle markerın aslında getBounds metoduna sahip olmamasından kaynaklı. getBounds metodu rectangles, and circles için uygundur.
+map.fitBounds(bbox2);
     
