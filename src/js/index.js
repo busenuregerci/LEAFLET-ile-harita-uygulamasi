@@ -72,4 +72,3 @@ var merkez2 = [41.00827163916992, 28.966947820848873];
 var nokta = L.circleMarker(merkez2, {radius: 5}).addTo(map); 
 var bbox2 = nokta.getBounds(); //! burada çıkan console hatası circle markerın aslında getBounds metoduna sahip olmamasından kaynaklı. getBounds metodu rectangles, and circles için uygundur.
 map.fitBounds(bbox2);
-    
